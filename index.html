@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
     <script src="app.js" defer></script>
 </head>
 <body>
@@ -12,17 +16,24 @@
     </header>
     <main>
         <form id="search-form">
-            <input type="text" id="search-input" placeholder="Sök bilder..." required />
+            <input type="text" id="search-input" class="searchName" placeholder="Sök bilder..." required />
             <select id="results-count">
+                <option value="5">5</option>
                 <option value="10">10</option>
-                <option value="10">20</option>
-                <option value="10">30</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
             </select>
             <button type="submit">Sök</button>
         </form>
-        <section id="image-container"></section>
-        <button id="prev-page-button">Prev. page</button>
-        <button id="next-page-button">Next page</button>
+        <section id="image-container" class="image-container" style="opacity: 80%; background-color: rgb(206, 216, 248);"></section>
+       <div class="page-buttons">
+             <button id="prev-page-button" class="ppBtn">←</button>
+             <p id="page-count">Sida 1</p>
+             <button id="next-page-button" class="npBtn">→</button>
+       </div>
     </main>
+    <footer>
+        <h2>Kul att blända bland bilderna på min sida</h2>
+    </footer>
 </body>
 </html>
