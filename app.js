@@ -12,3 +12,14 @@ formEl.addEventListener("submit", (event) => {
     const query = inputEl.value;
     console.log(query);
 });
+
+async function fetchImages(query) {
+    const endpoint = await fetch(
+      `https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${accessKey}`
+      );
+      try {
+       const res = await fetch
+      }
+      const data = await res.json();
+    console.log(data);
+  }
