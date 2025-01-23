@@ -14,12 +14,33 @@ formEl.addEventListener("submit", (event) => {
 });
 
 async function fetchImages(query) {
-    const endpoint = await fetch(
-      `https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${accessKey}`
-      );
-      try {
-       const res = await fetch
-      }
-      const data = await res.json();
-    console.log(data);
-  }
+    const endpoint = `https://api.unsplash.com/search/collections?page=1&query=${query}&client_id=${ACCESS_KEY}&per_page=2`;
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+        const data = await response.json();
+        displayImages(data.results);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+function displayImages(images) {
+    // rendera ut bilderna till UI:t
+    console.log(images);
+    // töm tidigare innehåll
+    imageContainerEl.innerHTML = "";
+    // fyller vi på med nya bilder
+    images.forEach(image => {
+        const imgDiv = document.createElement('div');
+        imgDiv.classList.add('image-item');
+        imgDiv.innerHTML = `
+            <a href="${image.links.html}" target="_blank">
+                <img src="${image.cover_photo.urls.small}" alt="${image.cover_photo.alt_description}">
+            </a>
+        `;
+        imageContainerEl.appendChild(imgDiv);
+    });
+};

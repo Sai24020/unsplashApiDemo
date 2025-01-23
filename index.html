@@ -7,15 +7,22 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    ><header>
+    <header>
         <h1>Unsplash API demo</h1>
     </header>
     <main>
         <form id="search-form">
-            <input type="text" id="search-input" placeholder="Sök bilder....." required/>
-               <button type="submit">Sök</button>
+            <input type="text" id="search-input" placeholder="Sök bilder..." required />
+            <select id="results-count">
+                <option value="10">10</option>
+                <option value="10">20</option>
+                <option value="10">30</option>
+            </select>
+            <button type="submit">Sök</button>
         </form>
-        <section id="image-container">Sök</section>
+        <section id="image-container"></section>
+        <button id="prev-page-button">Prev. page</button>
+        <button id="next-page-button">Next page</button>
     </main>
 </body>
 </html>
